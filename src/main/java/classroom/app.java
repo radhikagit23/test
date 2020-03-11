@@ -2,7 +2,7 @@
  * Hello world!
  *
  */
-public class App
+public class app
 {
     public static void main( String[] args )
     {
