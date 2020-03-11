@@ -1,0 +1,22 @@
+pipeline {
+	agent { label 'test' }
+	stages
+	{
+		
+		stage('Checkout')
+		{
+			steps { 
+				git branch: 'featureX', url: 'https://gitlab.com/radhika.ramaswamy23/gitlaboct18.git'
+			}
+		}
+		stage('Build War')
+		{
+		
+			steps { 
+				sh "mvn clean package"
+			}
+		}
+        
+    }
+}
+
