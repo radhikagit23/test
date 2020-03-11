@@ -6,7 +6,7 @@ pipeline {
 		stage('Checkout')
 		{
 			steps { 
-				git branch: 'featureX', url: 'https://gitlab.com/radhika.ramaswamy23/gitlaboct18.git'
+				git changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/radhikagit23/test.git'
 			}
 		}
 		stage('Build War')
