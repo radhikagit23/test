@@ -19,8 +19,8 @@ pipeline {
 				sh "mvn clean package"
 			}
           		}
-        post {
-                        always {
+        post{
+                        always{
                                 publishCoverage adapters: [jacocoAdapter('/target/site/jacoco/jacoco.xml')]
                         }
                 }
