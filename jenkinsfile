@@ -18,8 +18,21 @@ pipeline {
 			steps { 
 				sh "mvn clean package"
 			}
-		}
-        
+          		}
+        post {
+                        always {
+                                publishCoverage adapters: [jacocoAdapter('/target/site/jacoco/jacoco.xml')]
+                        }
+                }
+        stage('SonarQube Analysis') {
+        agent { label 'test' }
+                steps
+                        {
+                                withSonarQubeEnv('mysonarqube') {
+                                sh 'mvn sonar:sonar'
+                        }
+                }
+        }
     }
 }
 
